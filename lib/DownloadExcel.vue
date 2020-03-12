@@ -51,6 +51,16 @@ export default {
       // only array possible
       const sheet = XLSX.utils.json_to_sheet(data)
 
+      Object.keys(sheet).forEach((item) => {
+        const cell = sheet[item]
+        const value = cell.v
+        if (cell.t === 's' && value.indexOf('%') > -1) {
+          cell.z = '0.00%'
+          cell.t = 'n'
+          cell.v = Number(value.substring(0, value.length - 1)) / 100
+        }
+      })
+
       // A workbook is the name given to an Excel file
       const wb = XLSX.utils.book_new()
 
