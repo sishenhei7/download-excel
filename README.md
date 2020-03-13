@@ -11,7 +11,7 @@
 To begin with, just install download-excel:
 
 ```
-npm i download-excel -s
+npm i excel-downloader -s
 ```
 
 Then，register it in ```main.js```:
